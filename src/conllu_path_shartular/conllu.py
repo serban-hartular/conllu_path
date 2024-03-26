@@ -64,7 +64,7 @@ def sentence_to_conllu(sentence : Sentence) -> str:
     output = ''.join(['# %s\n' % m for m in sentence.meta]) if sentence.meta else ''
     output += '# sent_id = %s\n' % str(sentence.sent_id)
     output += '# text = %s\n' % str(sentence.text)
-    for node in sentence.sequence:
+    for node in sentence._sequence:
         output += node_to_conllu(node) + '\n'
     output += '\n'
     return output
